@@ -1,4 +1,4 @@
-const { NotFoundError, BadRequestError } = require('../exceptions/app-exception');
+const { NotFoundError, BadRequestError, ValidationError } = require('../exceptions/app-exception');
 const { BookRepository } = require("../repository");
 const mongoose = require('mongoose');
 
@@ -24,7 +24,7 @@ class BookService {
         // check if book is already exist
         const isExits = await BookRepository.findByAuthorAndTitle(data.author, data.title);
         if(isExits){
-            throw new BadRequestError("Book is alreay exist with this author");
+            throw new ValidationError("Book is alreay exist with this author");
         }
 
         let book = await BookRepository.create(data);
