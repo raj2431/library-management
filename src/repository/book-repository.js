@@ -13,6 +13,18 @@ class BookRepository {
         return Book.findOne({ _id: Id });
     }
 
+
+
+    /**
+     * To get book by Id
+     * @param {*} Id 
+     * @returns 
+     */
+    async findByAuthorAndTitle(author, title) {
+        return Book.findOne({ author: author, title: title });
+    }
+
+
     /**
      * To get all books
      * @param {*} userId 

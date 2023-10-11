@@ -20,6 +20,13 @@ class BookService {
      * @returns 
      */
     async create(data) {
+
+        // check if book is already exist
+        const isExits = await BookRepository.findByAuthorAndTitle(data.author, data.title);
+        if(isExits){
+            throw new BadRequestError("Book is alreay exist with this author");
+        }
+
         let book = await BookRepository.create(data);
         return { book: book };
     }
