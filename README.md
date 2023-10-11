@@ -8,3 +8,6 @@
 
 2. npm install
 3. npm run start
+
+Postman Link
+https://api.postman.com/collections/2415187-e1f63631-5551-49da-ae40-4f686e0d2d4a?access_key=PMAT-01HCG47YHX27KPBE8B8MG7QHV4
